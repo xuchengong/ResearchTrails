@@ -1,0 +1,13 @@
+A paper/repo pair is a combination of a research paper and its corresponding code repository. Each pair with progressive repo may have been annotated with 
+a research decision trajectory, which contains a sequence of decisions made by a research team over time. Each decision documents a scientific modification of 
+the proposed method, how it is evaluated (experiment), or its hyperparameters and components (ablation). Each decision is supported by evidences from commit histories in the code repository.
+It serves as a historical record that can be analyzed to understand the evolution of research ideas and to learn how to do research from researchers' demonstration.
+Workflow to extract decisions are in annotate_codex.py. 
+
+A research trajectory is considered well-annotated if 
+- its decision contents are readable and clear human language with precise wording, complete sentence structure, no vague or ambiguous terms
+- its decisions are neither too broad or coarse nor oversplitting
+- by going over the trajectory, one can understand the back-and-forth evolution of the research idea and the rationale behind each decision
+- its "trajectory_insight" field is clear, readable, neither over-generalized nor overspecific, and provides a meaningful description or insight about the idea evolution
+
+It is OK to have a lot of decisions, since a repo can have a long history of research evolution. The key is whether the decisions are well-annotated and whether the trajectory insight is meaningful.

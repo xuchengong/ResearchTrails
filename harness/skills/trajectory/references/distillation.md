@@ -1,0 +1,10 @@
+# Distillation traceability
+
+This skill was distilled from canonical trajectories 465, 53, 1354, 830, 1053, 434, 305, 472, 894, 958, 863, and 878. The source annotations remain authoritative; this note records why each portable pattern entered the skill.
+
+- Replace an indirect proxy with an operational measure: 465 moves from conceptual information-effectiveness formulas to executable answer-perplexity changes; 830 replaces approximate trade-off constructions with direct privacy-loss evaluation; 305 replaces a sequential prototype with a recursive mechanism and an explicit admissibility condition.
+- Revise the representation or estimator when it cannot express the claim: 1053 changes fixed-density adjacency into adaptive-mass relaxations; 434 revises both the latent simulation and conditional-independence diagnostic; 878 repeatedly changes cross-layer aggregation.
+- Use failed branches to localize uncertainty: 53 abandons corruption, probe, activation-family, and training-scope branches while retaining the scalar steering question; 1354 removes detectors and judge protocols while preserving the response-pattern validity problem; 958 abandons an absolute sign hypothesis in favor of a parameter-aware margin account.
+- Align the evaluation with the scientific claim: 830 evaluates the attack trade-off directly; 434 pairs representation diagnostics with causal-effect estimation; 863 replaces aggregate normalized flux error with source-matched flux consistency; 958 revises both synthetic and pretrained-model protocols.
+- Broaden only after stabilizing the mechanism: 53 expands tasks and architectures after choosing BetaAgg and logistic-regression probing; 894 expands vocabulary and scale studies after settling the embedding constraint; 472 expands multimodal evaluation after stabilizing process targets and reward modeling.
+- Consolidate exploratory work: across 465, 1354, and 863, the retained contribution becomes clearer as competing branches are replaced or removed. Deletion alone does not establish scientific failure, so the skill treats cleanup-only abandonment cautiously.

@@ -1,0 +1,159 @@
+You are analyzing a repository chronologically to recover research decisions observable in its public history.
+
+PAPER CONTEXT
+The paper title and abstract are supplied only to determine whether a repository change concerns the linked paper. They are not evidence for a research decision.
+Do not reconstruct decisions, motivations, results, or methods from the paper.
+
+RESEARCH DECISION
+A research decision is a repository change that meaningfully affects the paper's proposed contribution, how that contribution is evaluated, or the settings and components of the proposed method.
+
+Routine formatting, documentation, CI, dependency updates, bug fixes, and refactoring are not research decisions unless repository evidence shows that they alter the scientific method or evaluation.
+
+CATEGORY
+Give every decision exactly one category: `method`, `experiment`, or `ablation`. Label what the decision changes, not why it was made; wording such as "Hypothesize", "Investigate", or "Ablate" does not decide the category. Use the paper title and abstract only to identify the paper's contribution: what the paper builds or proposes (a model, objective, algorithm, estimator, theory, training or inference procedure, or system), or, for a benchmark, dataset, simulator, or platform paper, that released artifact. For an empirical-study or analysis paper, the contribution is the analysis, and the models it trains are experimental setup.
+- `method`: the decision builds or revises the contribution itself.
+  - This covers its architecture, representation, objective or loss form, training or inference procedure, estimator, data pipeline, theory, and claims about its scope.
+  - For a system, it covers the system's operators and internals.
+  - For a benchmark, it covers the benchmark's data, tasks, ground-truth targets, splits, environments, and construction rules.
+  - Introducing a mechanism with its initial settings, replacing one mechanism with a different one, and creating a knob that is the paper's key novelty are all method.
+- `experiment`: the decision changes how the contribution is evaluated or run for evaluation.
+  - This covers evaluation datasets and conditions (data size, noise, dimension, domain), metrics and scoring, protocols, checkpoint selection, seeds, budgets, and reporting.
+  - It covers baselines and comparators, including their hyperparameters. In a benchmark paper, the models run on the benchmark are baselines.
+  - It covers training settings of the models an analysis paper studies, analyses and diagnostics, and comparisons against baselines.
+- `ablation`: the decision changes the value of a hyperparameter of the proposed method, when that hyperparameter is not itself the paper's key novelty.
+  - Hyperparameters include the training settings of the authors' own model: learning rate, batch size, epochs, optimizer or schedule, dropout, EMA, loss weights, temperatures, thresholds, sizes, and counts.
+  - This holds whether the value is changed once, edited back and forth, or swept, and whether or not side-by-side runs are visible.
+  - A controlled comparison among variants of the proposed method's own components (A vs B, with vs without) is also ablation.
+- Key-novelty knobs. This rule applies when the hyperparameter is itself the paper's key novelty. It also applies to a weight, strength, or level that controls the proposed term or mechanism, such that some value of it turns the method back into an existing baseline (for example, a weight of 0 that removes the proposed term). Creating the knob is `method`. A later change or sweep of its value is:
+  - `experiment` if any value tried recovers an existing baseline, including when that value is one of several swept values;
+  - `ablation` if no value tried does;
+  - `experiment` if the evidence does not show whether any value recovers a baseline.
+- Proposed metrics. When the contribution is itself a metric, score, evaluation method, or verifier, building it is `method`. Adopting or configuring standard metrics is `experiment`.
+- Analysis papers. The paper's studied factor is `experiment`. A side-by-side comparison of the training recipe of the models it studies is `ablation`.
+- Tie-break. A decision that both builds a mechanism and evaluates it takes the category of its main content:
+  - `method` when that is building or revising the mechanism;
+  - `ablation` when it is a controlled comparison of the method's own variants;
+  - `experiment` when it is a comparison against baselines or an evaluation setting.
+
+PROCESS
+1. Process the supplied commits strictly in sequence order. Assess every commit. Do not silently omit one.
+2. A commit may:
+    - be research-irrelevant;
+    - support an existing decision;
+    - revise an existing decision;
+    - begin a new decision;
+    - combine several earlier commits into one decision; or
+    - contain several distinct decisions when separate changes support them.
+3. Merge engineering commits implementing the same scientific choice into one decision. A merge is transitive: if C was merged with A and later D supports C, D supports the existing {A,C} decision unless new evidence explicitly shows that the earlier grouping was wrong. Do not silently discard A or an intervening candidate B merely because C or D matched another thread.
+4. Preserve uncertain or incomplete changes exclusively as evidence-backed entries in `open_threads` so later commits can clarify them. Never put an uncertain candidate in `decisions` with an open status. For example, if an engineering implementation that itself is not a decision but it could be a decision if later commits implement the remaining, that engineering implementation can be an open thread. Every new or updated thread must include the relevant commit SHAs and exact repository citations from the current call; the harness retains its earlier evidence locally. Uncertainty means the evidence is not yet sufficient to classify the scientific choice, not that the thread lacks evidence.
+5. Never invent intent, causality, failed experiments, or observations.
+6. Cite only supplied repository evidence. A diff excerpt must be copied exactly.
+7. Preserve existing decision IDs. When merging decisions, record which IDs were merged rather than silently deleting them.
+   `merge_log` may name only formal decision IDs supplied in `prior_state`. If several changes in the current call belong to one atomic decision, return that one decision directly; do not invent and immediately absorb temporary decision IDs.
+8. A prior open thread may be resolved in three ways:
+    - If it belongs to an existing prior decision, merge its commit SHAs and evidence into that decision, remove the thread, and record `merged_into_decision` with the existing decision ID.
+    - If it becomes a distinct supported decision, remove the thread and record `promoted_to_decision` with its decision ID.
+    - If later evidence shows that it is not a research decision, remove the thread and record `rejected` with an empty result decision ID.
+9. The response is a delta, so omit unchanged prior open threads from `open_thread_upserts`; the harness retains them locally. Emit exactly one `thread_resolutions` entry only when the current call resolves and removes a prior thread. `thread_resolutions` contains only resolutions made in the current call; it is not a cumulative history.
+
+DECISION VALIDITY AND OUTCOME
+`status` records whether a candidate is genuinely a research decision. `outcome` records what later happened to a valid decision. Do not use one as a substitute for the other.
+- Use `status: "supported"` for every genuine historical research decision, including choices that were later removed, disabled, or replaced.
+- Use `status: "rejected"` only to remove an existing decision candidate that later evidence or final consolidation shows was never a research decision, such as setup-only work or an implementation step belonging to a parent choice. A rejected candidate must have `outcome: null`. Do not create a rejected decision for a newly observed irrelevant change, and use `merge_log` rather than rejection for duplicates.
+- Use `outcome: "retained"` when the decision remains operative at the end of the observed history or no supplied evidence shows that it was abandoned or superseded.
+- Use `outcome: "superseded"` only when a later extracted, supported decision clearly performs the same research role and repository evidence shows that it replaces the earlier choice. Preserve both decisions and set `superseded_by` to the successor's decision ID. A related later experiment, implementation change, deletion, or inactive invocation is not enough by itself.
+- Use `outcome: "abandoned"` for every other discontinued decision, including one that is removed or disabled without such a clearly identified successor. When uncertain whether a later decision is a true replacement, use `abandoned`.
+- Set `superseded_by` to null for every outcome other than `superseded`, and for every rejected candidate. Name only a decision ID that exists in this response or in `prior_state`; never invent one.
+- A deletion, disabled invocation, or replacement can update a supported decision's outcome and add lifecycle evidence. It must not by itself change that decision's status to rejected.
+- When a merge combines duplicate decision records, set the result's outcome from the latest lifecycle evidence. Upsert the merge target when its outcome changes.
+
+RECENT-FIRST MATCHING
+For each new research-relevant commit, compare it first with open threads in `recent_first_matching_order.open_thread_ids`, then with established decisions in `recent_first_matching_order.decision_ids`. Stop at the first clearly compatible scientific choice. Recency is a search preference, not a requirement: a nonadjacent commit may join an older thread or decision when the semantic evidence is clear. Intervening unmatched threads remain open and independent. Reject a thread only when evidence shows that it is not a research decision or it remains unsupported during finalization. If evidence instead establishes that the thread was a genuine decision later abandoned or superseded, promote it with that outcome and, when superseded, with its successor's decision ID. Never reject it merely because another thread received a match.
+
+ATOMIC DECISION GRANULARITY
+Each decision must express exactly one independently meaningful scientific choice, comparison, or revision. Apply these tests consistently:
+- Merge code changes, configuration edits, loaders, scripts, logging, and reporting utilities when they only implement or support the same method or experimental comparison.
+- Keep two choices separate only when each independently changes the proposed method, a dataset comparison, the evaluation protocol, or an ablation. In this case, the successor formulation counts as an independent decision.
+- A change in mathematical form, objective, architecture, training mechanism, inference procedure, or scientific data flow is a new decision even when it replaces—and cannot coexist with—the prior decision.
+- A sweep over a single parameter, distribution, schedule, or component is one decision, however many commits set individual values; its category follows the CATEGORY rules. Record the swept range in the decision text rather than splitting it.
+- The same rule applies across components: applying one baseline or normalization scheme to a second model, branch, or stage is support for the existing decision unless it introduces an independent research comparison of its own, e.g., augmenting the experiment evaluation protocol.
+- A new dataset or model is a separate decision only when repository evidence shows that it introduces a distinct research comparison, not merely support code.
+- A fallback, bug fix, parameter-counting utility, or result parser is not a separate decision unless it intentionally changes the scientific data, metric, protocol, or interpretation.
+- Use one consistent level of scope within a benchmark. Do not combine many attack or model families into one decision while treating a comparable single integration as a separate decision without a scientific reason.
+- Do not inflate the decision count by turning hyperparameters or implementation steps of exactly one scientific choice into separate decisions.
+
+If a current decision becomes too broad, keep its independently variable choices separate while their full evidence is available. During finalization, merge over-split decisions and reject setup-only entries using the same tests. Preserve valid historical decisions with abandoned or superseded outcomes. Record every merge in `merge_log`.
+
+INPUT
+- paper_context: title and abstract
+- prior_state: previously accumulated decisions and open threads
+- recent_first_matching_order: open-thread and decision IDs ordered from most recently evidenced to oldest
+- commits: the next chronological commit batch
+- evidence records: selected nonempty textual evidence only, with evidence ID, SHA, date, path, change status, evidence kind, and retained content. A creation snapshot is the bounded file text from its first add event; later records for that path contain only diffs. Empty and manifest-only records remain in local evidence.json and are not supplied.
+
+RETURN JSON
+The response is a delta, not the complete rolling state.
+- `decision_upserts` contains only decisions created, supported, semantically revised, assigned a new outcome, or explicitly rejected as invalid in this call. For an existing decision, return its complete updated semantic fields but only commit SHAs and exact citations newly supplied in this call. Omit unchanged prior decisions.
+- `open_thread_upserts` contains only threads created or updated in this call, with only newly supplied commit SHAs and exact citations. Omit unchanged prior threads.
+- `thread_resolutions` and `merge_log` contain only operations performed in this call.
+- A `thread_resolutions` entry may name only an ID listed in `resolvable_open_thread_ids`. When that list is empty, return an empty `thread_resolutions` array.
+- The harness retains and unions all omitted prior decisions, threads, commit SHAs, and citations locally.
+
+{
+"commit_assessments": [
+    {
+    "commit_sha": "...",
+    "classification": "irrelevant|support|revise|new|multiple|uncertain",
+    "decision_ids": ["Dxxx"],
+    "reason": "..."
+    }
+],
+"decision_upserts": [
+    {
+    "decision_id": "Dxxx",
+    "decision": "...",
+    "category": "method|experiment|ablation",
+    "status": "supported|rejected",
+    "outcome": "retained|abandoned|superseded or null when rejected",
+    "superseded_by": "decision ID of the successor, or null unless outcome is superseded",
+    "commit_shas": ["..."],
+    "evidence": [
+        {
+        "commit_sha": "...",
+        "date": "...",
+        "path": "...",
+        "diff_excerpt": "..."
+        }
+    ],
+    "why_research_relevant": "..."
+    }
+],
+"open_thread_upserts": [
+    {
+    "thread_id": "Txxx",
+    "summary": "...",
+    "commit_shas": ["..."],
+    "evidence": [
+        {
+        "commit_sha": "...",
+        "date": "...",
+        "path": "...",
+        "diff_excerpt": "..."
+        }
+    ],
+    "needed_evidence": "..."
+    }
+],
+"thread_resolutions": [
+    {
+    "thread_id": "Txxx",
+    "resolution": "merged_into_decision|promoted_to_decision|rejected",
+    "result_decision_id": "Dxxx or empty when rejected",
+    "reason": "..."
+    }
+],
+"merge_log": [],
+"batch_limitations": []
+}
+
+After the final batch, code verifies every SHA, path, and exact diff excerpt; consolidates duplicates; removes rejected candidates; retains supported decisions of every outcome; drops a `superseded_by` link whose successor did not survive validation; orders decisions by their first cited commit date; and derives decision_count itself. The annotation LLM then receives only those validated decisions and their evidence, not the entire accumulated conversation.

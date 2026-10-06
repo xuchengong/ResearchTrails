@@ -1,0 +1,32 @@
+# Secrets and environments
+.env
+.venv/
+sft/.venv/
+.cache/
+
+# Python
+__pycache__/
+*/__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Data: download the released annotations or build them with jobs/annotate.sh
+annotations/
+models/
+
+# Pipeline and experiment outputs
+annotate/.cache/
+annotate/*_buffer*.json
+annotate/*_filtered.csv
+annotate/*_filtered.state.json
+annotate/*_file_type_audit.json
+harness/runs/
+harness/rejudging/
+harness/user_simulation/runs/
+sft/data/
+sft/runs/
+sft/.venv/
+rl/runs/
+*.lock
+*.tmp
+.DS_Store

@@ -1,0 +1,541 @@
+{
+  "description": "Fixed 134-project held-out cohort of the harness method-comparison cases; do not add training projects here.",
+  "projects": [
+    {
+      "project_id": "neurips_2025:5",
+      "annotation": "annotations/neurips_2025/5-PreferredAI-pcatt/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:20",
+      "annotation": "annotations/neurips_2025/20-PredictiveIntelligenceLab-jaxpi/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:63",
+      "annotation": "annotations/neurips_2025/63-hhnqqq-MyTransformers/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:72",
+      "annotation": "annotations/neurips_2025/72-linweiii-BackdoorDM/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:82",
+      "annotation": "annotations/neurips_2025/82-ZhouYuxuanYX-Maximum-Suppression-Regularization/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:103",
+      "annotation": "annotations/neurips_2025/103-RamanujanMachine-euler2ai/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:109",
+      "annotation": "annotations/neurips_2025/109-NeuroML-Lab-representation-alignment/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:115",
+      "annotation": "annotations/neurips_2025/115-namkoong-lab-Inductive-biases-exchangeable-sequence/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:149",
+      "annotation": "annotations/neurips_2025/149-sail-sg-SkyLadder/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:158",
+      "annotation": "annotations/neurips_2025/158-BichengYing-FedASL/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:162",
+      "annotation": "annotations/neurips_2025/162-namkoong-lab-data-recipes/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:167",
+      "annotation": "annotations/neurips_2025/167-google-deepmind-questbench/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:168",
+      "annotation": "annotations/neurips_2025/168-juglab-scSplit/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:171",
+      "annotation": "annotations/neurips_2025/171-Open-Reasoner-Zero-Open-Reasoner-Zero/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:177",
+      "annotation": "annotations/neurips_2025/177-jkminder-science-of-finetuning/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:206",
+      "annotation": "annotations/neurips_2025/206-helenjin-soft_stability/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:209",
+      "annotation": "annotations/neurips_2025/209-CJReinforce-PURE/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:255",
+      "annotation": "annotations/neurips_2025/255-NVIDIA-torch-harmonics/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:264",
+      "annotation": "annotations/neurips_2025/264-scu-zjz-ForensicHub/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:265",
+      "annotation": "annotations/neurips_2025/265-langfengQ-verl-agent/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:275",
+      "annotation": "annotations/neurips_2025/275-Fancyssc-STEP/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:276",
+      "annotation": "annotations/neurips_2025/276-thu-ml-SageAttention/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:281",
+      "annotation": "annotations/neurips_2025/281-HKUSTDial-DeepFund/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:284",
+      "annotation": "annotations/neurips_2025/284-fgaim-TiALD/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:291",
+      "annotation": "annotations/neurips_2025/291-wenquanlu-noisy_dinov2/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:293",
+      "annotation": "annotations/neurips_2025/293-rjha18-vec2vec/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:307",
+      "annotation": "annotations/neurips_2025/307-ictnlp-SLED-TTS/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:323",
+      "annotation": "annotations/neurips_2025/323-pratikrathore8-scalable_gp_inference/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:335",
+      "annotation": "annotations/neurips_2025/335-autogluon-autogluon-assistant/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:339",
+      "annotation": "annotations/neurips_2025/339-tanzirmehedi-QUT-DV25/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:355",
+      "annotation": "annotations/neurips_2025/355-KabirDabholkar-separatrixLocator/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:364",
+      "annotation": "annotations/neurips_2025/364-ejmichaud-narrow/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:365",
+      "annotation": "annotations/neurips_2025/365-microsoft-RD-Agent/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:379",
+      "annotation": "annotations/neurips_2025/379-ZiyuGuo99-Image-Generation-CoT/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:396",
+      "annotation": "annotations/neurips_2025/396-kokolerk-TON/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:407",
+      "annotation": "annotations/neurips_2025/407-ZhiningLiu1998-imbalanced-ensemble/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:424",
+      "annotation": "annotations/neurips_2025/424-MetaEvo-MetaBox/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:428",
+      "annotation": "annotations/neurips_2025/428-ma921-HolderDPO/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:430",
+      "annotation": "annotations/neurips_2025/430-Benjamin-Walker-structured-linear-cdes/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:431",
+      "annotation": "annotations/neurips_2025/431-Benjamin-Walker-log-neural-cdes/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:444",
+      "annotation": "annotations/neurips_2025/444-sunnweiwei-AirRep/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:461",
+      "annotation": "annotations/neurips_2025/461-TRAIS-Lab-GraSS/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:506",
+      "annotation": "annotations/neurips_2025/506-stanfordnlp-axbench/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:525",
+      "annotation": "annotations/neurips_2025/525-Jenny-Zhu-CSI-Bench-Real-WiFi-Sensing-Benchmark/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:527",
+      "annotation": "annotations/neurips_2025/527-rtavenar-dgswp/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:538",
+      "annotation": "annotations/neurips_2025/538-instadeepai-og-marl/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:560",
+      "annotation": "annotations/neurips_2025/560-camel-ai-owl/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:573",
+      "annotation": "annotations/neurips_2025/573-Panhaolin2001-Compiler-R1/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:585",
+      "annotation": "annotations/neurips_2025/585-open-thought-reasoning-gym/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:590",
+      "annotation": "annotations/neurips_2025/590-sarthaxxxxx-AV-C-Robustness-Benchmark/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:609",
+      "annotation": "annotations/neurips_2025/609-chendiqian-Data-Augmentation-for-Learning-to-Optimize/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:614",
+      "annotation": "annotations/neurips_2025/614-JAMESYJL-ShapeLLM-Omni/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:623",
+      "annotation": "annotations/neurips_2025/623-gmum-FlySearch/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:632",
+      "annotation": "annotations/neurips_2025/632-Ledzy-StreamBP/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:643",
+      "annotation": "annotations/neurips_2025/643-Giventicket-SSIMBaD-Sigma-Scaling-with-SSIM-Guided-Balanced-Diffusion-for-AnimeFace-Colorization/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:644",
+      "annotation": "annotations/neurips_2025/644-DLFundamentals-understanding-ssl/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:652",
+      "annotation": "annotations/neurips_2025/652-osayamenja-FlashMoE/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:662",
+      "annotation": "annotations/neurips_2025/662-LAION-AI-scaling-laws-for-comparison/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:697",
+      "annotation": "annotations/neurips_2025/697-jpfolch-catechol_solvent_selection/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:734",
+      "annotation": "annotations/neurips_2025/734-sanokows-RethinkingLossesforDiffusionBridgeSamplers/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:736",
+      "annotation": "annotations/neurips_2025/736-JHU-CLSP-Feedback-Friction/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:737",
+      "annotation": "annotations/neurips_2025/737-gerdm-martingale-posterior-neural-networks/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:743",
+      "annotation": "annotations/neurips_2025/743-locuslab-open-unlearning/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:747",
+      "annotation": "annotations/neurips_2025/747-guanming-zhang-clamp/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:757",
+      "annotation": "annotations/neurips_2025/757-LLM360-Reasoning360/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:762",
+      "annotation": "annotations/neurips_2025/762-showlab-Show-o/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:766",
+      "annotation": "annotations/neurips_2025/766-zhongchenzhao-PPMA/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:778",
+      "annotation": "annotations/neurips_2025/778-allenai-genesys/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:785",
+      "annotation": "annotations/neurips_2025/785-Haoang97-CausalProbe-2024/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:790",
+      "annotation": "annotations/neurips_2025/790-XianzheFan-SoMi-ToM/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:799",
+      "annotation": "annotations/neurips_2025/799-RishalAggarwal-BoltzNCE/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:810",
+      "annotation": "annotations/neurips_2025/810-nhuang37-cosmology_benchmark/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:815",
+      "annotation": "annotations/neurips_2025/815-Anish144-CausalInferenceNeuralProcess/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:824",
+      "annotation": "annotations/neurips_2025/824-allenai-FlexOlmo/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:836",
+      "annotation": "annotations/neurips_2025/836-MICS-Lab-thunder/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:841",
+      "annotation": "annotations/neurips_2025/841-densutter-non-linear-representation-dilemma/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:854",
+      "annotation": "annotations/neurips_2025/854-CHATS-lab-LLMs_Encode_Harmfulness_Refusal_Separately/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:860",
+      "annotation": "annotations/neurips_2025/860-SarahLiaw-ctx-bandits-mcmc-showdown/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:867",
+      "annotation": "annotations/neurips_2025/867-ayiyayi-EgoExoBench/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:870",
+      "annotation": "annotations/neurips_2025/870-facebookresearch-MetaCLIP/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:871",
+      "annotation": "annotations/neurips_2025/871-xuanliugit-FGBench/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:873",
+      "annotation": "annotations/neurips_2025/873-mair-lab-EARL/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:892",
+      "annotation": "annotations/neurips_2025/892-noguchisatoshi-Wavy-Transformer/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:901",
+      "annotation": "annotations/neurips_2025/901-xinhao-luo-ClusterFusion/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:909",
+      "annotation": "annotations/neurips_2025/909-Bili-Sakura-RSCC/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:914",
+      "annotation": "annotations/neurips_2025/914-kietngt00-UFC/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:915",
+      "annotation": "annotations/neurips_2025/915-isbrycee-OralGPT/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:922",
+      "annotation": "annotations/neurips_2025/922-VCIP-RGBD-DFormer/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:952",
+      "annotation": "annotations/neurips_2025/952-newLLing-Table2LaTeX-RL/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:970",
+      "annotation": "annotations/neurips_2025/970-gy65896-Neptune-X/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:974",
+      "annotation": "annotations/neurips_2025/974-OpenGVLab-VideoChat-R1/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:981",
+      "annotation": "annotations/neurips_2025/981-plus-rkwitt-flooder/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1006",
+      "annotation": "annotations/neurips_2025/1006-peacelwh-VT-FSL/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1011",
+      "annotation": "annotations/neurips_2025/1011-Hugo-Chinn-PreferGrow/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1019",
+      "annotation": "annotations/neurips_2025/1019-JasonKyng-NAGL/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1032",
+      "annotation": "annotations/neurips_2025/1032-Jimmy-7664-ST-SSDL/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1040",
+      "annotation": "annotations/neurips_2025/1040-ml-jku-neural-gyrokinetics/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1061",
+      "annotation": "annotations/neurips_2025/1061-USTC-StarTeam-RAG-IGBench/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1063",
+      "annotation": "annotations/neurips_2025/1063-hhhddddddd-dydeblur/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1070",
+      "annotation": "annotations/neurips_2025/1070-dipkamal-FACE/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1079",
+      "annotation": "annotations/neurips_2025/1079-KediYing-mmWalk/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1082",
+      "annotation": "annotations/neurips_2025/1082-KEAML-JLU-GRACE/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1118",
+      "annotation": "annotations/neurips_2025/1118-azencot-group-MSD-Benchmark/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1125",
+      "annotation": "annotations/neurips_2025/1125-JiajunHong1-GroupHOI/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1136",
+      "annotation": "annotations/neurips_2025/1136-RohithKuditipudi-blackbox-model-tracing/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1149",
+      "annotation": "annotations/neurips_2025/1149-csiro-funml-variationalsearch/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1150",
+      "annotation": "annotations/neurips_2025/1150-HKU-MedAI-DPMM/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1154",
+      "annotation": "annotations/neurips_2025/1154-yx-chen-ust-EditInfinity/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1159",
+      "annotation": "annotations/neurips_2025/1159-antonior92-adversarial_training_kernel/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1164",
+      "annotation": "annotations/neurips_2025/1164-cyz-ai-neural-MI-estimate-clean/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1171",
+      "annotation": "annotations/neurips_2025/1171-facebookresearch-videoseal/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1192",
+      "annotation": "annotations/neurips_2025/1192-ShahrzadGit-topkmallows-choices/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1197",
+      "annotation": "annotations/neurips_2025/1197-Silent-Zebra-RePULSe/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1207",
+      "annotation": "annotations/neurips_2025/1207-ShuhongLL-I2-NeRF/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1221",
+      "annotation": "annotations/neurips_2025/1221-june6423-Angular-KD/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1223",
+      "annotation": "annotations/neurips_2025/1223-howardchanth-var-polya-tree/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1232",
+      "annotation": "annotations/neurips_2025/1232-heliossun-LaCoT/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1254",
+      "annotation": "annotations/neurips_2025/1254-uzairakbar-causal-data-augmentation/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1260",
+      "annotation": "annotations/neurips_2025/1260-EliaTorre-hmmrnn/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1262",
+      "annotation": "annotations/neurips_2025/1262-wilrev-MultimodalBandits/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1277",
+      "annotation": "annotations/neurips_2025/1277-jffbrwn2-ConnectomeBench/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1287",
+      "annotation": "annotations/neurips_2025/1287-BCV-Uniandes-LITHOS/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1294",
+      "annotation": "annotations/neurips_2025/1294-spmede-KCMP/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1312",
+      "annotation": "annotations/neurips_2025/1312-roozbeh-yz-miniF2F_v2/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1313",
+      "annotation": "annotations/neurips_2025/1313-BCV-Uniandes-ESCAPE/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1322",
+      "annotation": "annotations/neurips_2025/1322-jinglin-liang-OLAS/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1338",
+      "annotation": "annotations/neurips_2025/1338-GenuineWWD-SCS/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1366",
+      "annotation": "annotations/neurips_2025/1366-GNet2025-GNet/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1371",
+      "annotation": "annotations/neurips_2025/1371-ZhiGroup-DAVIS-complete/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1372",
+      "annotation": "annotations/neurips_2025/1372-nerdslab-nuclr/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1378",
+      "annotation": "annotations/neurips_2025/1378-hkust-zhiyao-ArchPower/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1383",
+      "annotation": "annotations/neurips_2025/1383-meaningful96-CoopRAG/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1395",
+      "annotation": "annotations/neurips_2025/1395-Farama-Foundation-Gymnasium/annotation.json"
+    },
+    {
+      "project_id": "neurips_2025:1399",
+      "annotation": "annotations/neurips_2025/1399-elated-sawyer-WALL-E/annotation.json"
+    }
+  ]
+}

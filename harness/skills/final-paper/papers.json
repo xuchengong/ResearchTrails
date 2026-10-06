@@ -1,0 +1,119 @@
+{
+  "source": "NeurIPS 2025 proceedings; full published paper PDF, including embedded appendices",
+  "papers": [
+    {
+      "training_idx": 465,
+      "title": "LIMOPro: Reasoning Refinement for Efficient and Effective Test-time Scaling",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/e64616e0bbe8ce04eb5acaceb6b9f65f-Abstract-Conference.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/e64616e0bbe8ce04eb5acaceb6b9f65f-Paper-Conference.pdf"
+    },
+    {
+      "training_idx": 53,
+      "title": "Curvature Tuning: Provable Training-free Model Steering From a Single Parameter",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/57cc9268e06500c7681e58829dca4a07-Abstract-Conference.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/57cc9268e06500c7681e58829dca4a07-Paper-Conference.pdf"
+    },
+    {
+      "training_idx": 1354,
+      "title": "Fantastic Bugs and Where to Find Them in AI Benchmarks",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/5b44b99d012922011f0be1031a98c4f9-Abstract-Datasets_and_Benchmarks_Track.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/5b44b99d012922011f0be1031a98c4f9-Paper-Datasets_and_Benchmarks_Track.pdf"
+    },
+    {
+      "training_idx": 830,
+      "title": "Unifying Re-Identification, Attribute Inference, and Data Reconstruction Risks in Differential Privacy",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/a28af221f2f70be183afc16797a56b91-Abstract-Conference.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/a28af221f2f70be183afc16797a56b91-Paper-Conference.pdf"
+    },
+    {
+      "training_idx": 1053,
+      "title": "Beyond Pairwise Connections: Extracting High-Order Functional Brain Network Structures under Global Constraints",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/fa86a9c7b9f341716ccb679d1aeb9afa-Abstract-Conference.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/fa86a9c7b9f341716ccb679d1aeb9afa-Paper-Conference.pdf"
+    },
+    {
+      "training_idx": 434,
+      "title": "The Third Pillar of Causal Analysis? A Measurement Perspective on Causal Representations",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/3dda5b6fa9e7c98928844e776f2a657a-Abstract-Conference.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/3dda5b6fa9e7c98928844e776f2a657a-Paper-Conference.pdf"
+    },
+    {
+      "training_idx": 305,
+      "title": "Differentially Private Quantiles with Smaller Error",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/cfc1924c62e72e2cb0e0feeecb963241-Abstract-Conference.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/cfc1924c62e72e2cb0e0feeecb963241-Paper-Conference.pdf"
+    },
+    {
+      "training_idx": 472,
+      "title": "DreamPRM: Domain-Reweighted Process Reward Model for Multimodal Reasoning",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/b0ac83bdaf39ebee3d89f5a226f50e83-Abstract-Conference.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/b0ac83bdaf39ebee3d89f5a226f50e83-Paper-Conference.pdf"
+    },
+    {
+      "training_idx": 894,
+      "title": "Exploiting Vocabulary Frequency Imbalance in Language Model Pre-training",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/c911506647555da03db9c5277cd2221d-Abstract-Conference.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/c911506647555da03db9c5277cd2221d-Paper-Conference.pdf"
+    },
+    {
+      "training_idx": 958,
+      "title": "Global Minimizers of Sigmoid Contrastive Loss",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/80e7105086d8ccbe9921291a5a4bd7df-Abstract-Conference.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/80e7105086d8ccbe9921291a5a4bd7df-Paper-Conference.pdf"
+    },
+    {
+      "training_idx": 863,
+      "title": "STAR: A Benchmark for Astronomical Star Fields Super-Resolution",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/d148af92c539119926be9dbff7ba7f02-Abstract-Datasets_and_Benchmarks_Track.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/d148af92c539119926be9dbff7ba7f02-Paper-Datasets_and_Benchmarks_Track.pdf"
+    },
+    {
+      "training_idx": 878,
+      "title": "Beyond the Surface: Enhancing LLM-as-a-Judge Alignment with Human via Internal Representations",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/8629b0fff229b8a27efb1422e990605f-Abstract-Conference.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/8629b0fff229b8a27efb1422e990605f-Paper-Conference.pdf"
+    },
+    {
+      "training_idx": 325,
+      "title": "CLEVER: A Curated Benchmark for Formally Verified Code Generation",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/a7f67788f7b4d77fa7cd6887de3dcbe7-Abstract-Datasets_and_Benchmarks_Track.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/a7f67788f7b4d77fa7cd6887de3dcbe7-Paper-Datasets_and_Benchmarks_Track.pdf"
+    },
+    {
+      "training_idx": 1037,
+      "title": "Human Texts Are Outliers: Detecting LLM-generated Texts via Out-of-distribution Detection",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/ef52fd1e24634cb8f7003ebbfb3644d9-Abstract-Conference.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/ef52fd1e24634cb8f7003ebbfb3644d9-Paper-Conference.pdf"
+    },
+    {
+      "training_idx": 806,
+      "title": "Lost in Latent Space: An Empirical Study of Latent Diffusion Models for Physics Emulation",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/c3b88408bb209dca87dad596ecf88bba-Abstract-Conference.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/c3b88408bb209dca87dad596ecf88bba-Paper-Conference.pdf"
+    },
+    {
+      "training_idx": 259,
+      "title": "Creativity or Brute Force? Using Brainteasers as a Window into the Problem-Solving Abilities of Large Language Models",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/d8029bd38eed88a26e343220d0aeeb7e-Abstract-Conference.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/d8029bd38eed88a26e343220d0aeeb7e-Paper-Conference.pdf"
+    },
+    {
+      "training_idx": 988,
+      "title": "Virus Infection Attack on LLMs: Your Poisoning Can Spread \"VIA\" Synthetic Data",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/e6c5195dac675f03d0fcf3955bcdd3c9-Abstract-Conference.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/e6c5195dac675f03d0fcf3955bcdd3c9-Paper-Conference.pdf"
+    },
+    {
+      "training_idx": 1116,
+      "title": "CaMiT: A Time-Aware Car Model Dataset for Classification and Generation",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/7d221cd24da6832273b22b73e3276bb0-Abstract-Datasets_and_Benchmarks_Track.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/7d221cd24da6832273b22b73e3276bb0-Paper-Datasets_and_Benchmarks_Track.pdf"
+    },
+    {
+      "training_idx": 304,
+      "title": "Collapsing Taylor Mode Automatic Differentiation",
+      "publication_url": "https://papers.nips.cc/paper_files/paper/2025/hash/d835e25415cfe4d6d48a0be3b7b763bb-Abstract-Conference.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2025/file/d835e25415cfe4d6d48a0be3b7b763bb-Paper-Conference.pdf"
+    }
+  ]
+}

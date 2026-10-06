@@ -1,0 +1,5 @@
+# Install the appropriate CUDA (or CPU) torch wheel first; see README.md.
+torch==2.8.0
+transformers==4.57.6
+peft==0.18.1
+accelerate==1.12.0

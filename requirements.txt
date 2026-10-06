@@ -1,0 +1,3 @@
+# Annotation and harness code (annotate/, harness/). Everything else is the standard library.
+# SFT and RL have their own environment: see sft/requirements.txt.
+pymupdf==1.28.2
