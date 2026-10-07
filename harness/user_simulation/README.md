@@ -15,11 +15,9 @@ Each run makes two calls to GPT-5.6 Sol (`openai/gpt-5.6-sol`), without and with
 
 ## Run
 
-From the repository root, with `OPENROUTER_API_KEY` loaded from `.env`:
+From the repository root (`OPENROUTER_API_KEY` is read from `.env`):
 
 ```bash
-set -a; source .env; set +a
-
 python3 harness/user_simulation/run.py bug_repair     # -> harness/user_simulation/runs/bug_repair/
 python3 harness/user_simulation/run.py answer_judge   # -> harness/user_simulation/runs/answer_judge/
 ```

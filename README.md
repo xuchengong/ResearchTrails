@@ -6,6 +6,7 @@
   <a href="https://www.researchtrails.org"><b>Blog</b></a> •
   <a href="https://www.researchtrails.org/visualizer"><b>Data Visualizer</b></a>
 </div>
+<br>
 
 Papers record the final proposed method and experiment results, not how the authors get there. We turn the **Git commit history** of a paper into a **human research trajectory** and present a dataset containing 599 research trajectories made of 13K evidence-grounded **research decisions**. We show that learning from these trajectories, as demonstrations, distilled skills or as training data, helps models propose the next research decision better than learning from final papers alone.
 
@@ -13,7 +14,7 @@ Papers record the final proposed method and experiment results, not how the auth
 <img src="assets/overview.svg" alt="ResearchTrails" width="800"/>
 </div>
 
-## Repository overview
+## Overview
 
 | Folder | Paper | Contents |
 |---|---|---|
@@ -23,57 +24,81 @@ Papers record the final proposed method and experiment results, not how the auth
 | [`rl/`](rl/) | §5.2| RL from the SFT checkpoint with decision-similarity rewards (Dr. GRPO) and its per-epoch evaluation. |
 | [`jobs/`](jobs/) | | Launch scripts for the annotation pipeline and the harness experiments reported in the paper. |
 
-## Setup
+Setup and usage details are in each folder's README.
+
+## Quick Start
+
+1. **Install** (Python 3.12)
+   ```bash
+   python3 -m venv .venv
+   .venv/bin/pip install -r requirements.txt
+   ```
+
+2. **Add API keys**
+   ```bash
+   cp .env.example .env   # fill in OPENROUTER_API_KEY; GITHUB_TOKEN is only needed to build trajectories
+   ```
+
+3. **Download the trajectories**
+   ```bash
+   .venv/bin/hf download researchtrails/annotations --repo-type dataset --local-dir annotations
+   ```
+
+4. **Run an experiment**, e.g. the harness table (paid API calls)
+   ```bash
+   bash jobs/harness_table.sh   # tables in harness/runs/{skills,demos,rag}-summary/table.md
+   ```
+
+To reproduce the paper, run the following commands from the repository root. Commands that call models through OpenRouter make paid API calls.
+
+### Building trajectories (§3)
 
 ```bash
-# For annotation and harness (Python 3.12, standard library, and PyMuPDF)
-python3 -m venv .venv
-.venv/bin/pip install -r requirements.txt
-
-# For SFT and RL (Install a PyTorch wheel matching your CUDA driver first; see sft/README.md; we use L40S x 1 for SFT and L40S x 4 for RL).
-python3 -m venv sft/.venv
-sft/.venv/bin/pip install -r sft/requirements.txt
-
-# API keys
-cp .env.example .env    # then fill in OPENROUTER_API_KEY and GITHUB_TOKEN
-```
-
-Evidence collection also needs `git` on the path. All language-model calls go through [OpenRouter](https://openrouter.ai) by default; `annotate/annotate_codex.py` and `annotate/annotate_claude.py` are CLI alternatives if one has codex/claude plans.
-
-**Data.** The harness, SFT and RL code read trajectories from `annotations/neurips_<year>/<idx>-<owner>-<repo>/annotation.json`. Either download the released annotations with `hf download researchtrails/annotations --repo-type dataset --local-dir annotations`, or build them with the pipeline below.
-
-## 1. Building trajectories (`annotate/`)
-
-```bash
+# Discover NeurIPS 2025 paper/repository pairs, filter them, collect commit evidence, and then annotate (needs GITHUB_TOKEN and git token)
 VENUE=NeurIPS YEAR=2025 bash jobs/annotate.sh
 ```
 
-The job runs the pipeline's following `sample.py` -> `filter.py` -> `extract.py` -> `annotate_openrouter.py`. 
+See [`annotate/README.md`](annotate/README.md) for running single stages, the filtering rules, and the output format.
 
-Each decision in `annotation.json` has its content, the supporting commits and code excerpts, a `category` (*method*, *experiment*, or *ablation*) and an `outcome` (*retained*, *superseded*, or *abandoned*), and is ordered by its first cited commit (`time_step_id`). The paper's annotations used GPT-5.6 Sol with xhigh reasoning. `prompt.txt` and `criteria.txt` hold the annotation instructions. More details are in `annotate/README.md`.
+### Next-decision prediction with harnesses (§5.1, Appendix B)
 
-The index lists in `annotate/` define the subsets used in experiments: `harness_splits.json` holds the train, test, and prefix-length repositories of the harness experiments (its test repositories are also the SFT and RL test set), and `trajectory_selections.json` holds the winding and logically structured trajectories used for SFT and RL.
+```bash
+# Prefix-length plateau: predict from no prefix, the last 1, 2, 3, 5, or 10 decisions, or the full history
+bash jobs/prefix_length.sh     # -> harness/runs/prefix-length-gemini-3.1-flash-lite-last-k-sol-medium-summary/
 
-## 2. Predicting the next decision with harnesses (`harness/`)
+# Harness table: Baseline, All demos, Random/Retrieve two demos, Skills, Shuffled skill, and
+# Final paper skill on the 134 held-out projects, 3 repeats each
+bash jobs/harness_table.sh     # -> harness/runs/{skills,demos,rag}-summary/table.md
 
-The code produces the results in Section 5.1, with more details in `harness/README.md`.
+# Judge variance and calibration: Sol judges 100 fixed predictions 3 times, and Opus-written controls
+bash jobs/judge_quality.sh     # -> harness/runs/judge-variance-*-analysis/, harness/runs/judge-calibration-*/results/
 
-| Paper result | Job |
-|---|---|
-| Prefix-length plateau | `jobs/prefix_length.sh`. `REBUILD=1 bash jobs/prefix_length.sh` first rebuilds its setting from the annotations. |
-| Harness table | `jobs/harness_table.sh`. It reuses the paper's distilled skills, shuffled skills and final paper skill; `DISTILL=1 bash jobs/harness_table.sh` distills new ones first. |
-| Judge variance and calibration (Appendix B) | `jobs/judge_quality.sh`. |
-| Scores re-judged by Opus 5 (Appendix B) | `jobs/judge_grid.sh`. It re-judges the predictions of the three jobs above; its `rl` part also needs the training runs of Section 3. |
-| User simulations | `harness/user_simulation/run.py` |
+# Opus 5 re-judges every reported prediction; run after the jobs above and the RL evaluation below
+bash jobs/judge_grid.sh        # -> harness/rejudging/{judge-grid,judge-variance}/
 
-## 3. Training a next-decision policy (`sft/`, `rl/`)
+# User simulation: GPT-5.6 Sol answers a research question with and without a research pattern
+python3 harness/user_simulation/run.py bug_repair     # -> harness/user_simulation/runs/bug_repair/COMPARISON.md
+python3 harness/user_simulation/run.py answer_judge   # -> harness/user_simulation/runs/answer_judge/COMPARISON.md
+```
 
-Training uses the SFT environment (`sft/.venv`).
+See [`harness/README.md`](harness/README.md) for details. 
 
-1. **SFT cold start.** `bash sft/run_sft.sh` prepares the decision sequences of the project splits in `sft/splits/` into `sft/data` and fine-tunes the paper's LoRA adapter on Qwen3-8B to model $\pi_\theta(a_t \mid p, a_{<t})$.
-2. **RL with decision-similarity rewards.** `bash rl/run_grpo.sh` runs Dr. GRPO from the SFT checkpoint, sampling several decisions per prefix and rewarding each with its judged component plus operation match (0 for invalid generations).
+### Training a next-decision policy (§5.2)
 
-The paper's SFT epoch-3 and GRPO epoch-7 adapters are released as [researchtrails/qwen3-8b-sft](https://huggingface.co/researchtrails/qwen3-8b-sft) and [researchtrails/qwen3-8b-grpo](https://huggingface.co/researchtrails/qwen3-8b-grpo). Details are in `sft/README.md` and `rl/README.md`.
+SFT and RL run on GPUs in their own environment, `sft/.venv` (the paper used one L40S for SFT and four for RL). Set it up first as in [`sft/README.md`](sft/README.md#setup).
+
+```bash
+# SFT: LoRA on Qwen3-8B over the 125 training projects -> sft/runs/qwen3-8b/seed-42/
+bash sft/run_sft.sh
+bash sft/run_evaluation_loss.sh              # held-out loss of every epoch checkpoint
+bash sft/run_checkpoint_generation.sh all    # greedy predictions of the base model and every epoch, judged by Sol
+
+# RL: Dr. GRPO from the SFT epoch-3 checkpoint, rewarded by Sol's judgment -> rl/runs/grpo-lr1e-4/
+GPUS=4 bash rl/run_grpo.sh
+bash rl/run_evaluation.sh                    # greedy predictions of the SFT start and every RL epoch, judged by Sol
+```
+
+See [`sft/README.md`](sft/README.md) and [`rl/README.md`](rl/README.md) for the data, settings, and other starting checkpoints. The paper's SFT epoch-3 and GRPO epoch-7 adapters are released as [researchtrails/qwen3-8b-sft](https://huggingface.co/researchtrails/qwen3-8b-sft) and [researchtrails/qwen3-8b-grpo](https://huggingface.co/researchtrails/qwen3-8b-grpo).
 
 ## Citation
 

@@ -10,11 +10,16 @@ import json
 import os
 from pathlib import Path
 import re
+import sys
 import urllib.error
 import urllib.request
 
 HERE = Path(__file__).resolve().parent
 REPO_ROOT = HERE.parents[1]
+sys.path.insert(0, str(REPO_ROOT))
+from envload import load_env  # noqa: E402
+
+
 def recorded_path(path: Path) -> str:
     """Path to record in setting files and run files: relative to the repository root when inside it."""
     resolved = Path(path).resolve()
@@ -178,7 +183,7 @@ def run(args, transport=post_response) -> None:
         if any(r["custom_id"] in latest for r in remaining) and not args.retry_errors:
             raise ValueError("prior failed or interrupted attempts exist; inspect attempts.jsonl, then use --retry-errors to resubmit")
         if not os.environ.get("OPENROUTER_API_KEY"):
-            raise ValueError("OPENROUTER_API_KEY is required; export it or source the repository .env")
+            raise ValueError("OPENROUTER_API_KEY is required; set it in the repository .env or export it")
         with ledger.open("a", encoding="utf-8") as handle, ThreadPoolExecutor(max_workers=args.concurrency) as pool:
             futures = {}
             for request in remaining:
@@ -226,4 +231,5 @@ def parse_args(argv=None):
 
 
 if __name__ == "__main__":
+    load_env()
     run(parse_args())

@@ -14,6 +14,8 @@ Semantic Scholar venue/year -> sample.py
 
 Keys are read from `.env` at the repo root. `GITHUB_TOKEN` is needed since unauthenticated GitHub allows 60 requests/hour; `OPENROUTER_API_KEY` is needed for `annotate_openrouter.py`.
 
+The whole pipeline runs with `VENUE=NeurIPS YEAR=2025 bash jobs/annotate.sh`; evidence collection needs `git` on the path. The paper's annotations used GPT-5.6 Sol with xhigh reasoning. `annotate_codex.py` and `annotate_claude.py` are CLI alternatives to `annotate_openrouter.py` if one has Codex or Claude plans.
+
 ```bash
 python3 annotate/sample.py     --venue NeurIPS --year 2025
 python3 annotate/filter.py     --venue neurips --year 2025

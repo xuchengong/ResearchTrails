@@ -383,7 +383,7 @@ def summarize_controls(
 
 def print_controls(per_control: dict, strict_order_rate: float) -> None:
     print(
-        "control\texpected_trajectory\tmean_trajectory\tmean_object"
+        "control\texpected_trajectory\tmean_trajectory\tmean_component"
         "\tmean_operation\tmean_specification\texact_expected_rate\ttrajectory_mae"
     )
     for control in CONTROL_NAMES:

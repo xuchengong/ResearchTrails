@@ -196,7 +196,7 @@ def truncate_at_end_of_main_paper(text):
 
 def pdf_main_text_from_bytes(data):
     try:
-        import fitz  # PyMuPDF, optional
+        import pymupdf as fitz  # optional
     except ImportError:
         fitz = None
     if fitz is not None:

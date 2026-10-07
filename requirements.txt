@@ -1,3 +1,5 @@
-# Annotation and harness code (annotate/, harness/). Everything else is the standard library.
+# Annotation and harness code (annotate/, harness/), plus the `hf` command that downloads
+# the released annotations. Everything else is the standard library.
 # SFT and RL have their own environment: see sft/requirements.txt.
 pymupdf==1.28.2
+huggingface_hub>=0.34

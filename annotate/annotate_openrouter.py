@@ -35,10 +35,10 @@ The workflow is:
    decisions, then write the selected annotation JSON file with paper metadata and
    source links.
 
-The run-specific state sidecar checkpoints completed calls, costs, and request durations.
-The OpenRouter comparison output uses ``annotation_openrouter.json`` with a separate
-``.state.annotation_openrouter.json`` sidecar, so it does not replace the curated
-``annotation.json``, its state, or canonical CSV status.
+The output is ``annotation.json``, and its ``.state.json`` sidecar checkpoints completed
+calls, costs, and request durations; the filtered CSV records each row's annotation
+status. ``--annotation-file`` writes a separately named annotation and sidecar instead,
+leaving ``annotation.json`` and the CSV status unchanged.
 """
 
 import argparse
@@ -2219,7 +2219,7 @@ def build_annotation(row, decisions, metadata, generation=None):
 
 
 def project_paths(
-    annotations_root, row, owner, name, annotation_filename="annotation_openrouter.json"
+    annotations_root, row, owner, name, annotation_filename="annotation.json"
 ):
     folder = f"{path_slug(row.get('idx'))}-{path_slug(owner)}-{path_slug(name)}"
     project_dir = annotations_root / folder
@@ -2350,7 +2350,7 @@ def parse_args(
     *,
     description=None,
     default_model=None,
-    default_annotation_file="annotation_openrouter.json",
+    default_annotation_file="annotation.json",
     context_tokens_env="OPENROUTER_CONTEXT_TOKENS",
     parents=(),
 ):
