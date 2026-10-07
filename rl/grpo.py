@@ -329,7 +329,7 @@ def continue_from(config, checkpoint):
     """Record the exported adapter this run continues, after checking it fits the base."""
     checkpoint = checkpoint.resolve()
     exported = json.loads((checkpoint / "export_complete.json").read_text())
-    base = json.loads((checkpoint / "dpo_base.json").read_text())
+    base = json.loads((checkpoint / "merged_base.json").read_text())
     if any(base.get(key) != value for key, value in config["merged_base"].items()):
         raise ValueError("the checkpoint was trained on a different merged SFT base")
     adapter = json.loads((checkpoint / "adapter_config.json").read_text())

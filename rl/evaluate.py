@@ -39,7 +39,7 @@ def prepare(args):
         updates = completed["updates"]
         if json.loads((adapter / "export_complete.json").read_text())["updates"] != updates:
             raise ValueError("final export does not match its completed training run")
-    base = json.loads((adapter / "dpo_base.json").read_text())
+    base = json.loads((adapter / "merged_base.json").read_text())
     if training["adapter_mode"] != "merged_sft_fresh_lora" or base != training["merged_base"]:
         raise ValueError("adapter export does not match its training run")
     data_dir = Path(training["data_dir"])
@@ -206,7 +206,7 @@ def summarize(output, config, metadata):
               "These compare independent reference-based scores, not direct pairwise judge verdicts.",
               f"Invalid JSON: SFT {summaries['sft_initialization']['invalid_json']}, {label} {summaries[algorithm]['invalid_json']}. "
               "Original raw text is judged for invalid JSON; all cases remain in averages.",
-              f"Judge: Sol medium, original integer rubric, component + operation (0–4). "
+              f"Judge: Sol medium, component + operation (0–4). "
               f"Saved successful-response API cost: ${math.fsum(costs):.6f}."]
     report = "\n".join(table) + "\n"
     (output / "comparison.md").write_text(report)

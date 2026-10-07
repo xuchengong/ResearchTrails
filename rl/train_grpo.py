@@ -178,7 +178,7 @@ def export_adapter(path, model, tokenizer, metadata, base_spec):
     model.save_pretrained(path, selected_adapters=["default"], save_embedding_layers=False)
     tokenizer.save_pretrained(path)
     # This adapter must be applied to the merged SFT base, not original Qwen.
-    write_once(path / "dpo_base.json", json_text(base_spec))
+    write_once(path / "merged_base.json", json_text(base_spec))
     atomic_json(complete, metadata)
 
 

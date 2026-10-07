@@ -1,4 +1,4 @@
-"""Judge saved SFT predictions with the concurrent harness's original rubric/schema.
+"""Judge saved SFT predictions with the concurrent harness's rubric/schema.
 
 Prepare offline by default; --confirm-submit submits only unfinished judgments.
 """

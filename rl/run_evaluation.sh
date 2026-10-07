@@ -13,7 +13,9 @@ set -a; source .env; set +a
 export HF_HOME="$PWD/.cache/huggingface"
 export HF_HUB_CACHE="$HF_HOME/hub"
 export HF_XET_CACHE="$HF_HOME/xet"
-export CUDA_VISIBLE_DEVICES=0
+# One process uses the first visible GPU (default 0).
+CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0}"
+export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES%%,*}"
 
 unset TRANSFORMERS_CACHE PYTORCH_TRANSFORMERS_CACHE PYTORCH_PRETRAINED_BERT_CACHE
 mkdir -p "$HF_HUB_CACHE" "$HF_XET_CACHE"

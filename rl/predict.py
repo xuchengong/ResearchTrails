@@ -27,7 +27,7 @@ def predict(args):
     if training.get("algorithm") != "grpo" or training["adapter_mode"] != "merged_sft_fresh_lora":
         raise ValueError("expected a fresh GRPO adapter trained on a merged SFT base")
     json.loads((adapter / "export_complete.json").read_text())
-    base_spec = json.loads((adapter / "dpo_base.json").read_text())
+    base_spec = json.loads((adapter / "merged_base.json").read_text())
     if base_spec != training["merged_base"]:
         raise ValueError("exported adapter's merged-base identity differs from its training run")
     data_dir = (args.data_dir or Path(training["data_dir"])).resolve()
