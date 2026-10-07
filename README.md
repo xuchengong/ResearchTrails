@@ -103,10 +103,10 @@ See [`sft/README.md`](sft/README.md) and [`rl/README.md`](rl/README.md) for the 
 ## Citation
 
 ```bibtex
-@article{gong2026researchtrails,
+@article{gong2026learning,
   title   = {Learning Scientific Exploration from Human Research Decisions Trajectories},
   author  = {Gong, Xuchen and Gu, Shane and Liu, Haokun and Yao, Dixi and Tan, Chenhao and Li, Tian},
-  journal = {arXiv preprint},
+  journal = {arXiv preprint arXiv:2610.07184},
   year    = {2026}
 }
 ```
