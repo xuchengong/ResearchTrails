@@ -1,7 +1,7 @@
 # ResearchTrails: Learning Scientific Exploration from Human Research Decisions Trajectories
 
 <div align="center">
-  <a href="https://arxiv.org"><b>Paper</b></a> •
+  <a href="https://arxiv.org/pdf/2610.07184"><b>Paper</b></a> •
   <a href="https://huggingface.co/researchtrails"><b>Data & Models</b></a> •
   <a href="https://www.researchtrails.org"><b>Blog</b></a> •
   <a href="https://www.researchtrails.org/visualizer"><b>Data Visualizer</b></a>
